@@ -1,0 +1,27 @@
+###
+
+GET {{host}}/api/getUsers
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+  client.assert(response.contentType.mimeType === "application/json", "Response Content-Type is not application/json");
+});
+%}
+
+###
+
+POST {{host}}/api/saveUser
+Content-Type: application/json
+
+{
+  "id": 0,
+  "username": "anonymous"
+}
+
+> {%
+client.test("Request executed successfully", function() {
+  client.assert(response.status === 200, "Response status is not 200");
+  client.assert(response.contentType.mimeType === "application/json", "Response Content-Type is not application/json");
+});
+%}
